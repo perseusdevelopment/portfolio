@@ -1,10 +1,10 @@
 // Check Off Specific To DOs By CLicking
-$("li").click(function(){
+$("ul").on("click", "li", function() {
     $(this).toggleClass("completed");
 });
 
 // Click on X  to Delete To DOs
-$("span").click(function(event){
+$("ul").on("click", "span", function(event){
     $(this).parent().fadeOut(500, function() {
         $(this).remove();
     });
@@ -17,7 +17,11 @@ $("input[type='text']").keypress(function(event) {
         var todoText = $(this).val();
         $(this).val("");
         // Create New li and ADD to ul
-        $("ul").append("<li>" + todoText  + "</li>");
+        $("ul").append("<li><span><i class='far fa-trash-alt'></i></span>" + todoText  + "</li>");
     }
 
+});
+
+$(".fa-pencil-alt").click(function() {
+    $("input[type='text'").fadeToggle();
 });
